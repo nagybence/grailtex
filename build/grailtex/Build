@@ -1,0 +1,12 @@
+pkgname=grailtex
+depends=(xetex base)
+
+download() {
+	cp -Lf ../grailtex.ini ../language.dat ../texmf.cnf .
+}
+
+build() {
+	grailtex -etex -ini grailtex.ini
+	installfile "$pkgdir"/share/grailtex grailtex.fmt grailtex.ini language.dat pdftex.map pdftex.cfg
+	install -m 644 -D texmf.cnf "$pkgdir"/lib/grailtex/texmf.cnf
+}

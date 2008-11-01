@@ -1,0 +1,6 @@
+pkgname=xkeyval
+
+build() {
+	installalltex run/*
+	installalldoc doc/*.pdf
+}

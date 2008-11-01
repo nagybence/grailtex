@@ -1,0 +1,6 @@
+pkgname=memoir
+
+build() {
+	installalltex
+	installalldoc
+}

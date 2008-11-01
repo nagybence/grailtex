@@ -1,0 +1,10 @@
+pkgname=hyph-utf8
+
+download() {
+	downloadzip languages/hyph-utf8.zip
+}
+
+build() {
+	installalltex tex/
+	installalldoc doc/
+}

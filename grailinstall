@@ -107,7 +107,7 @@ getrepo() {
 	message "Updating repo data..."
 	[ -f md5sums ] && rm -f md5sums
 	wget -nv "$repo/md5sums"
-  chmod 666 md5sums
+	chmod 666 md5sums
 }
 
 [ -z "$ROOTDIR" ] && ROOTDIR='/usr/local'

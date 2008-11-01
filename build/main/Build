@@ -1,0 +1,10 @@
+pkgname=main
+depends=(babel base geometry graphics hyperref memoir ms oberdiek pslatex tools textcase textpos)
+
+download() {
+	true
+}
+
+build() {
+	true
+}

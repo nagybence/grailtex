@@ -1,0 +1,9 @@
+pkgname=tools
+depends=(xkeyval)
+sourcefile=macros/latex/required/tools.zip
+
+build() {
+	makealltex
+	installalltex *.tex .tex # need to install ".tex" too
+	installalldoc
+}

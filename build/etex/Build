@@ -1,0 +1,6 @@
+pkgname=etex
+sourcefile=systems/e-tex/v2.1/etex_lib.zip
+
+build() {
+	installalltex texmf/etex/latex/misc/*
+}

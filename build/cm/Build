@@ -1,0 +1,19 @@
+pkgname=cm
+
+download() {
+	downloaddir fonts/cm/ps-type1/bluesky/pfb/
+	downloaddir fonts/mflogo/ps-type1/hoekwater/
+	downloaddir fonts/cm/tfm
+	downloaddir fonts/latex/tfm/
+	downloaddir fonts/mflogo/tfm/
+	downloaddir fonts/cm/ps-type1/bluesky-contrib/dvips/
+	downloadfile fonts/cm/ps-type1/bakoma/pfb/eurm10.pfb
+	downloadfile fonts/cm/ps-type1/bakoma/pfb/eurb10.pfb
+	rm old_manfnt.tfm
+}
+
+build() {
+	mv psfonts.cmz cm.map
+	installallfonts
+	installalldoc
+}

@@ -1,0 +1,12 @@
+pkgname=magyar
+
+download() {
+	downloaddir language/hungarian/babel
+}
+
+build() {
+	sed -i 's/\(\\noexpand\\magyar@sugg@ie\)/%\1/' magyar.ldf
+	sed -i 's/\(\\noexpand\\magyar@sugg@to\)/%\1/' magyar.ldf
+	installalltex
+	installalldoc
+}

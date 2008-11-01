@@ -1,0 +1,11 @@
+pkgname=graphics
+depends=(xcolor)
+sourcefile=macros/latex/required/graphics.zip
+
+build() {
+	makealltex
+	sed -i "s:\\\\InputIfFileExists{graphics.cfg}{}{}:\\\\def\\\\Gin@driver{xetex.def}\\\\ExecuteOptions{xetex}:" graphics.sty
+	sed -i "s:\\\\InputIfFileExists{color.cfg}{}{}:\\\\def\\\\Gin@driver{xetex.def}\\\\ExecuteOptions{xetex}:" color.sty
+	installalltex
+	installalldoc
+}

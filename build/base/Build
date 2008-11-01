@@ -1,0 +1,16 @@
+pkgname=base
+depends=(cm etex hyphenation xetex)
+
+download() {
+	downloadzip macros/latex/base.zip
+	downloadfile macros/plain/base/hyphen.tex
+}
+
+build() {
+	maketex unpack.ins
+	sed -i 's/^\(\\dump\)/%\1/' latex.ltx
+	sed -i 's/^\(\\input texsys.cfg\)/%\1/' latex.ltx
+	# rm t1cmr.fd t1cmss.fd t1cmtt.fd t1cmvtt.fd ts1cmr.fd ts1cmss.fd ts1cmtt.fd ts1cmvtt.fd
+	installalltex docstrip.tex hyphen.tex
+	installalldoc
+}

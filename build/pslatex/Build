@@ -1,0 +1,8 @@
+pkgname=pslatex
+depends=(psnfss urwbase)
+
+build() {
+	installfonts tfm/* vf/* dvips/*
+	installalltex latex/pslatex.sty
+	installalldoc
+}

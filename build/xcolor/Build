@@ -1,0 +1,8 @@
+pkgname=xcolor
+
+build() {
+	makealltex
+	sed -i "s:\\\\InputIfFileExists{color.cfg}{}{}:\\\\def\\\\Gin@driver{xetex.def}\\\\ExecuteOptions{xetex}:" xcolor.sty
+	installalltex
+	installdoc xcolor.pdf
+}

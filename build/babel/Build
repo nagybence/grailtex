@@ -1,0 +1,10 @@
+pkgname=babel
+depends=(magyar)
+sourcefile=macros/latex/required/babel.zip
+
+build() {
+	maketex babel.ins
+	rm language.dat magyar.*
+	installalltex *.ldf *.tex *.dat
+	installalldoc GreekFonts.txt
+}

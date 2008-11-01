@@ -1,0 +1,8 @@
+pkgname=oberdiek
+depends=(tools)
+
+build() {
+	maketex oberdiek.ins
+	installalltex vpe.pl
+	installalldoc vpe.txt
+}

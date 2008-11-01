@@ -17,7 +17,7 @@ maketex() {
 			$TEX -interaction nonstopmode $i
 			log=`basename $i | sed "s/\..\+$/.log/"`
 			while [ -n "`grep 'Rerun' $log`" ]; do
-	    			message "(Re)TeXing: $i"
+				message "(Re)TeXing: $i"
 				$TEX -interaction nonstopmode $i
 			done
 		fi
@@ -50,7 +50,7 @@ installtex() {
 }
 
 installalltex() {
-	installtex *.{bst,cfg,cls,clo,def,fd,ltx,sty,dfu} $@
+	installtex *.{bst,cfg,cls,clo,def,dfu,drv,fd,ldf,ltx,sty} $@
 }
 
 installdoc() {
@@ -110,11 +110,11 @@ downloaddir() {
 }
 
 download() {
-	downloaddir "$sourcedir"
+	downloadzip "$sourcefile"
 }
 
 dopatch() {
-        patch -Np1 --no-backup-if-mismatch -i "$currdir"/$1
+  patch -Np1 --no-backup-if-mismatch -i "$currdir"/$1
 }
 
 build() {
@@ -133,7 +133,7 @@ pack() {
 if [ -f Build ]; then
 	[ -z "$TEX" ] && TEX=grailtex
 	while getopts "cdps" opt; do
-	    	case $opt in
+		case $opt in
 			c) CLEAN=1 ;;
 			d) NODOWNLOAD=1 ;;
 			p) TEX=pdflatex ;;
@@ -148,11 +148,17 @@ if [ -f Build ]; then
 	texdir="$pkgdir"/share/grailtex/tex/"$pkgname"
 	docdir="$pkgdir"/share/grailtex/doc/"$pkgname"
 	fontsdir="$pkgdir"/share/grailtex/fonts/"$pkgname"
-	[ -z "$sourcedir" ] && sourcedir=macros/latex/contrib/"$pkgname"
+	[ -z "$sourcefile" ] && sourcefile=macros/latex/contrib/"$pkgname".zip
 	[ "$NODOWNLOAD" = '1' ] || download
 	if [ ! "$NOBUILD" = '1' ]; then
 		message "Build"
-		cp -Rf "$srcdir" "$tmpdir"
+		if [ -d "$srcdir"/"$pkgname" ]; then
+			cp -Rf "$srcdir"/"$pkgname" "$tmpdir"
+			cp -Rf "$srcdir"/* "$tmpdir"
+			rm -rf "$tmpdir"/"$pkgname"
+		else
+			cp -Rf "$srcdir" "$tmpdir"
+		fi
 		cd "$tmpdir"
 		build
 		[ "$NOPACK" = '1' ] || pack
