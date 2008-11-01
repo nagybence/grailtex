@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+mkdir -p packages/
+cd packages/
+PACKAGES=`find ../build/ -maxdepth 2 -name "*.tar.bz2"`
+[ -n "$PACKAGES" ] && mv $PACKAGES .
+cp ../grailinstall .
+
+git log  > ChangeLog
+md5sum * > md5sums
+cd ..

@@ -1,0 +1,24 @@
+pkgname=xetex
+
+download() {
+	# If you build from scratch, download source from svn.
+        # svn co http://scripts.sil.org/svn-public/xetex/TRUNK/
+	cp -Lr ../TRUNK/* .
+	find -name .svn | xargs rm -r
+}
+
+build() {
+	sed -i "s/xetex.pool/grailtex.pool/" texk/web2c/texmfmp.h
+	sed -i "s/This is XeTeX/This is GrailTeX/" texk/web2c/xetexdir/*
+	
+	sh build-xetex
+
+	cp Work/texk/web2c/xetex grailtex
+	cp Work/texk/web2c/xetex.pool grailtex.pool
+	installfile "$pkgdir"/share/grailtex grailtex.pool
+	installfile "$pkgdir"/lib/grailtex/ grailtex
+	mkdir -p "$pkgdir"/bin
+	ln -s ../lib/grailtex/grailtex "$pkgdir"/bin
+	installtex texmf/tex/* -r
+	installdoc texmf/doc/* -r
+}

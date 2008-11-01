@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+message() {
+        echo -e "\033[1;1m$1\033[1;0m" >&2
+}
+
+makepackage() {
+	for i in $@; do
+		message "Creating $i..."
+		cd $i
+		fakeroot ../makepkg -c
+		cd ..
+	done
+}
+
+makeallpackages() {
+	makepackage `find . -maxdepth 1 -type d | grep '/'`
+}
+
+if [ "$1" = "all" ]; then
+	makeallpackages
+	message "Finished all"
+elif [ ! "$#" -eq 0 ]; then
+	makepackage $@
+	message "Finished"
+else
+	message "Usage: $0 <package>"
+fi

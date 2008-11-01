@@ -1,0 +1,163 @@
+#!/bin/bash -e
+
+currdir=`pwd`
+workdir=`pwd`
+srcdir="$workdir"/src
+tmpdir="$workdir"/tmp
+pkgdir="$workdir"/pkg
+
+message() {
+	echo -e "\033[1;1m$1\033[1;0m" >&2
+}
+
+maketex() {
+	for i in $@; do
+		if [ -f $i ]; then
+			message "Texing: $i"
+			$TEX -interaction nonstopmode $i
+			log=`basename $i | sed "s/\..\+$/.log/"`
+			while [ -n "`grep 'Rerun' $log`" ]; do
+	    			message "(Re)TeXing: $i"
+				$TEX -interaction nonstopmode $i
+			done
+		fi
+	done
+}
+
+makealltex() {
+	maketex *.ins $@
+}
+
+makedoc() {
+	[ "$NODOC" = '1' ] || maketex $@
+}
+
+makealldoc() {
+	makedoc *.dtx $@
+}
+
+installfile() {
+	for i in ${@:2:$#}; do
+		if [ -f $i -o -d $i ]; then
+			mkdir -p "$1"
+			cp -RfL $i "$1"
+		fi
+	done
+}
+
+installtex() {
+	installfile "$texdir" $@
+}
+
+installalltex() {
+	installtex *.{bst,cfg,cls,clo,def,fd,ltx,sty,dfu} $@
+}
+
+installdoc() {
+	[ "$NODOC" = '1' ] || installfile "$docdir" $@
+}
+
+installalldoc() {
+	installdoc *.pdf *AUTHORS* *README* *NEWS* COPYING* LICENSE* *readme* Changes CHANGES ChangeLog Announcement* announce.txt manifest.txt gpl.txt artistic.txt $@
+}
+
+installfonts() {
+	if [ ! "$NOFONTS" = '1' ]; then
+		for i in ${@:1:$#}; do
+			if [ -f $i ]; then
+				extension=`echo $i | sed "s/.*\.\(.*\)$/\1/"`
+				mkdir -p "$fontsdir"/"$extension"
+				cp -Rf $i "$fontsdir"/"$extension"
+			elif [ -d $i ]; then
+				mkdir -p "$fontsdir"
+				cp -Rf $i "$fontsdir"
+			fi
+		done
+	fi
+}
+
+installallfonts() {
+	installfonts *.{map,vf,tfm,pfa,pfb,enc} $@
+}
+
+buildall() {
+	makealltex
+	installalltex
+	installalldoc
+}
+
+downloadfile() {
+	wget --retr-symlinks ftp://tug.ctan.org/pub/tex-archive/"$1"
+}
+
+downloadzip() {
+	downloadfile "$1"
+	unzip -o `basename "$1"`
+}
+
+downloadtargz() {
+	downloadfile "$1"
+	tar -xvzf `basename "$1"`
+}
+
+downloadtarbz2() {
+	downloadfile "$1"
+	tar -xvjf `basename "$1"`
+}
+
+downloaddir() {
+	wget -r -nH -l 10 --retr-symlinks --cut-dirs=`echo /"$1"/ | sed "s/[^\/]//g" | wc -c` ftp://tug.ctan.org/pub/tex-archive/"$1"/*
+}
+
+download() {
+	downloaddir "$sourcedir"
+}
+
+dopatch() {
+        patch -Np1 --no-backup-if-mismatch -i "$currdir"/$1
+}
+
+build() {
+	buildall
+}
+
+pack() {
+	message "Pack"
+	cd "$pkgdir"
+	mkdir -p "$pkgdir"/share/grailtex/grailinstall
+	echo "${depends[@]}" | tr " " "\n" >> "$pkgdir"/share/grailtex/grailinstall/"$pkgname".depends
+	find . -type f >> "$pkgdir"/share/grailtex/grailinstall/"$pkgname".filelist
+	tar -cvjf "$workdir"/"$pkgname".tar.bz2 . 1>/dev/null
+}
+
+if [ -f Build ]; then
+	[ -z "$TEX" ] && TEX=grailtex
+	while getopts "cdps" opt; do
+	    	case $opt in
+			c) CLEAN=1 ;;
+			d) NODOWNLOAD=1 ;;
+			p) TEX=pdflatex ;;
+			s) CLEANSRC=1 ;;
+		esac								
+	done
+	[ "$NODOWNLOAD" = "1" ] || rm -rf "$srcdir"
+	rm -rf "$tmpdir" "$pkgdir" 
+	mkdir -p "$pkgdir" "$srcdir"
+	cd "$srcdir"
+	. "$currdir"/Build
+	texdir="$pkgdir"/share/grailtex/tex/"$pkgname"
+	docdir="$pkgdir"/share/grailtex/doc/"$pkgname"
+	fontsdir="$pkgdir"/share/grailtex/fonts/"$pkgname"
+	[ -z "$sourcedir" ] && sourcedir=macros/latex/contrib/"$pkgname"
+	[ "$NODOWNLOAD" = '1' ] || download
+	if [ ! "$NOBUILD" = '1' ]; then
+		message "Build"
+		cp -Rf "$srcdir" "$tmpdir"
+		cd "$tmpdir"
+		build
+		[ "$NOPACK" = '1' ] || pack
+	fi
+	[ "$CLEAN" = '1' ] && rm -rf "$pkgdir" "$tmpdir"
+	[ "$CLEANSRC" = '1' ] && rm -rf "$srcdir"
+	cd "$currdir"
+fi

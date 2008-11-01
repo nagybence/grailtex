@@ -1,0 +1,133 @@
+#!/bin/bash -e
+
+repo=http://www.tipogral.hu/grailtex/packages
+
+message() {
+	echo -e "\033[1;1m$1\033[1;0m" >&2
+}
+
+cleanpackage() {
+	message "Cleaning package $1..."
+	if [ -f "$ROOTDIR"/share/grailtex/grailinstall/"$1".filelist ]; then
+		for file in `cat "$ROOTDIR"/share/grailtex/grailinstall/"$1".filelist`; do
+			[ "$VERBOSE" = '1' ] && echo "$file"
+			rm -f "$ROOTDIR"/"$file"
+		done		
+	fi
+	rm -rf "$ROOTDIR"/share/grailtex/grailinstall/"$1".*
+	rm -rf "$ROOTDIR"/share/grailtex/{tex,doc,fonts}/"$1"/
+}
+
+removepackage() {
+	for i in $@; do
+		message "Removing package $i..."
+		depends=`grep ^$i$ "$ROOTDIR"/share/grailtex/grailinstall/*.depends | sed "s/\.depends.*//; s/.*\///"`
+		cleanpackage $i
+		[ -n "$depends" ] && message "Package(s) `echo $depends | sed 's/ /, /g'` depend(s) on $i"
+		for depend in $depends; do
+			removepackage $depend
+		done
+	done
+}
+
+downloadpackage() {
+	message "Downloading package $1..."
+	if [ -f "$1".tar.bz2 ]; then
+		if [ "`cat md5sums | grep " $1.tar.bz2" | cut -d' ' -f1`" != "`md5sum $1.tar.bz2 | cut -d' ' -f1`" ]; then
+			rm "$1".tar.bz2
+			wget "$repo"/"$1".tar.bz2
+		fi
+	else
+		wget "$repo"/"$1".tar.bz2
+	fi
+}
+
+extractpackage() {
+	# TMPDIR=`tempfile`
+	# rm "$TMPDIR" && mkdir -p "$TMPDIR"
+	TMPDIR="/tmp/grailtex_`date +%s%N`"
+	mkdir -p "$TMPDIR"
+	[ "$NOINSTALL" = '1' ] || cleanpackage `basename "$1"`
+	message "Installing package `basename $1`..."
+	if [ "$VERBOSE" = '1' ]; then
+		tar --no-same-owner -xvjf "$1".tar.bz2 -C "$TMPDIR"
+	else
+		tar --no-same-owner -xvjf "$1".tar.bz2 -C "$TMPDIR" >/dev/null
+	fi
+	[ "$NODOC" = '1' ] && rm -rf "$TMPDIR"/share/grailtex/doc
+	[ "$NOFONTS" = '1' ] && rm -rf "$TMPDIR"/share/grailtex/fonts
+	if [ ! "$NOINSTALL" = '1' ]; then
+		cp -Rf "$TMPDIR"/. "$ROOTDIR"
+		mkdir -p "$ROOTDIR"/share/grailtex/grailinstall/
+		md5sum "$1".tar.bz2 > "$ROOTDIR"/share/grailtex/grailinstall/`basename "$1"`.md5sum
+	fi
+	rm -rf "$TMPDIR"
+	if [ "`echo $1 | sed 's:.*/::'`" = "grailtex" ]; then
+		sed -i "s:@ROOTDIR@:$ROOTDIR/share/grailtex//:g" "$ROOTDIR"/lib/grailtex/texmf.cnf
+	fi
+	if [ "`echo $1 | sed 's:.*/::'`" = "grail" ]; then
+		sed -i "s:@ROOTDIR@:\"$ROOTDIR\":g" "$ROOTDIR"/bin/create_grail_application
+	fi
+}
+
+installpackage() {
+	for i in $@; do
+		if [ "`cat md5sums | grep " $i.tar.bz2"`" != "" ]; then
+			if [ "$FORCE" = '1' -o ! -f "$ROOTDIR"/share/grailtex/grailinstall/"$i".md5sum ]; then
+				downloadpackage $i
+				extractpackage $i
+	    		elif [ "`cat md5sums | grep " $i.tar.bz2" | cut -d' ' -f1`" != "`cat $ROOTDIR/share/grailtex/grailinstall/"$i".md5sum | cut -d' ' -f1`" ]; then
+				downloadpackage $i
+				extractpackage $i
+			fi
+		else
+			message "Package $i is locally installed, can not update!"
+		fi
+		depends=`cat "$ROOTDIR"/share/grailtex/grailinstall/"$i".depends`
+		[ -n "$depends" ] && echo "Package $i depends on `echo $depends | sed 's/ /, /g'`"
+		for depend in $depends; do
+			installpackage $depend
+		done
+	done
+}
+
+checkinstall() {
+	message "Checking install script..."
+	if [ -f md5sums -a "`cat md5sums | grep "grailinstall" | cut -d' ' -f1`" != "`md5sum grailinstall | cut -d' ' -f1`" ]; then
+		message "Upgrading install script..."
+		[ -f grailinstall ] && rm -f grailinstall
+		wget -nv "$repo/grailinstall"
+		chmod 755 grailinstall
+		message "Exiting. Rerun install script."
+		exit 0
+	fi
+}
+
+getrepo() {
+	message "Updating repo data..."
+	[ -f md5sums ] && rm -f md5sums
+	wget -nv "$repo/md5sums"
+  chmod 666 md5sums
+}
+
+[ -z "$ROOTDIR" ] && ROOTDIR='/usr/local'
+message "Using $ROOTDIR as installation directory."
+if [ ! -w "$ROOTDIR" ]; then
+	message "ROOTDIR ($ROOTDIR) is not writable!"
+else
+	if [ "$1" = '-a' ]; then
+		extractpackage `echo $2 | sed "s/.tar.bz2$//"`
+	elif [ "$1" = '-r' ]; then
+			removepackage ${@:2:$#}
+	elif [ -f md5sums ]; then
+		[ "$NOREPO" = '1' ] || getrepo
+		[ "$NOCHECK" = '1' ] || checkinstall
+		if [ "$1" = '-u' ]; then
+			installpackage `ls "$ROOTDIR"/share/grailtex/grailinstall/*.depends | sed "s/.*\/\(.*\).depends/\1/"`
+		else
+			installpackage ${@:1:$#}
+		fi
+	else
+		message "No available package informations!"
+	fi
+fi
