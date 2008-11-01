@@ -1,7 +1,0 @@
-pkgname=urwbase
-sourcefile=fonts/urw/base35.zip
-
-build() {
-	installfonts pfb/*
-	installalldoc
-}

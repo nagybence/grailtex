@@ -1,5 +1,5 @@
 pkgname=base
-depends=(cm etex hyphenation xetex)
+depends=(cm etex hyphenation latex xetex)
 
 download() {
 	downloadzip macros/latex/base.zip

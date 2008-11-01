@@ -1,5 +1,5 @@
 pkgname=main
-depends=(babel base geometry graphics hyperref memoir ms oberdiek pslatex tools textcase textpos)
+depends=(babel base geometry graphics hyperref memoir ms oberdiek tools textcase textpos)
 
 download() {
 	true

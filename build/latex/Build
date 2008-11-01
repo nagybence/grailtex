@@ -1,0 +1,6 @@
+pkgname=latex
+sourcefile=fonts/latex.zip
+
+build() {
+	installallfonts tfm/*.tfm
+}
