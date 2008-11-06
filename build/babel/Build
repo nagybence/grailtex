@@ -5,6 +5,6 @@ sourcefile=macros/latex/required/babel.zip
 build() {
 	maketex babel.ins
 	rm language.dat magyar.*
-	installalltex *.ldf *.tex *.dat
+	installalltex *.ldf *.tex *.dat *.cfg
 	installalldoc GreekFonts.txt
 }

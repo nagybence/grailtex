@@ -50,7 +50,7 @@ installtex() {
 }
 
 installalltex() {
-	installtex *.{bst,cfg,cls,clo,def,dfu,drv,fd,ldf,ltx,sty} $@
+	installtex *.{bst,cls,clo,def,dfu,drv,fd,ldf,ltx,sty} $@
 }
 
 installdoc() {

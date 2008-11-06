@@ -2,7 +2,7 @@ pkgname=hyperref
 
 build() {
 	makealltex
-	rm hdvi* hvtex* htex* hypertex*
+	rm hdvips* hdviwind* hvtex* htex* hypertex*
 	installalltex
 	installalldoc doc/*.pdf
 }
