@@ -1,5 +1,5 @@
 pkgname=base
-depends=(grailtex cm etex hyph-utf8 latex xetex)
+depends=(grailtex cm etex fontspec hyph-utf8 latex xetex)
 
 download() {
 	downloadzip macros/latex/base.zip
