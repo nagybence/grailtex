@@ -15,10 +15,13 @@ build() {
 
 	cp Work/texk/web2c/xetex grailtex
 	cp Work/texk/web2c/xetex.pool grailtex.pool
+	cp Work/texk/xdvipdfmx/src/xdvipdfmx xdvipdfmx
 	installfile "$pkgdir"/share/grailtex grailtex.pool
 	installfile "$pkgdir"/lib/grailtex/ grailtex
+	installfile "$pkgdir"/lib/grailtex/ xdvipdfmx
 	mkdir -p "$pkgdir"/bin
 	ln -s ../lib/grailtex/grailtex "$pkgdir"/bin
+	ln -s ../lib/grailtex/xdvipdfmx "$pkgdir"/bin
 	installtex texmf/tex/* -r
 	installdoc texmf/doc/* -r
 }
