@@ -1,6 +1,8 @@
 pkgname=memoir
 
 build() {
+	rm memoir.cls memhfixc.sty mempatch.sty
+	makealltex
 	installalltex
 	installalldoc
 }
