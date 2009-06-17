@@ -1,0 +1,8 @@
+pkgname=libertine
+sourcefile=fonts/libertine.zip
+
+build() {
+	installalltex tex/xelatex/libertine/*
+	installallfonts fonts/opentype/public/libertine/*
+	installalldoc
+}

@@ -24,4 +24,5 @@ build() {
 	ln -s ../lib/grailtex/xdvipdfmx "$pkgdir"/bin
 	installtex texmf/tex/* -r
 	installdoc texmf/doc/* -r
+	installfonts texmf/fonts/* -r
 }
