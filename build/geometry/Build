@@ -1,1 +1,8 @@
 pkgname=geometry
+
+build(){
+  maketex "\let\install=y\input{geometry.dtx}"
+  installalltex
+  installalldoc
+}
+

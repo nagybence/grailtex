@@ -11,11 +11,12 @@ message() {
 }
 
 maketex() {
+    echo $@
 	for i in $@; do
+		message "Texing: $i"
+		$TEX -interaction nonstopmode $i
+		log=`basename $i | sed "s/\..\+$/.log/"`
 		if [ -f $i ]; then
-			message "Texing: $i"
-			$TEX -interaction nonstopmode $i
-			log=`basename $i | sed "s/\..\+$/.log/"`
 			while [ -n "`grep 'Rerun' $log`" ]; do
 				message "(Re)TeXing: $i"
 				$TEX -interaction nonstopmode $i
@@ -138,10 +139,10 @@ if [ -f Build ]; then
 			d) NODOWNLOAD=1 ;;
 			p) TEX=pdflatex ;;
 			s) CLEANSRC=1 ;;
-		esac								
+		esac
 	done
 	[ "$NODOWNLOAD" = "1" ] || rm -rf "$srcdir"
-	rm -rf "$tmpdir" "$pkgdir" 
+	rm -rf "$tmpdir" "$pkgdir"
 	mkdir -p "$pkgdir" "$srcdir"
 	cd "$srcdir"
 	. "$currdir"/Build
@@ -167,3 +168,4 @@ if [ -f Build ]; then
 	[ "$CLEANSRC" = '1' ] && rm -rf "$srcdir"
 	cd "$currdir"
 fi
+

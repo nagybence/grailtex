@@ -1,0 +1,165 @@
+This is GrailTeX, Version 3.1415926-2.2-0.9994.0 (Web2C 7.5.6) (format=grailtex 2009.6.17)  20 JUN 2009 15:35
+entering extended mode
+**ams-c1.ins
+(./ams-c1.ins
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for magyar, loaded.
+(/usr/local/share/grailtex/tex/base/docstrip.tex
+\blockLevel=\count80
+\emptyLines=\count81
+\processedLines=\count82
+\commentsRemoved=\count83
+\commentsPassed=\count84
+\codeLinesPassed=\count85
+\TotalprocessedLines=\count86
+\TotalcommentsRemoved=\count87
+\TotalcommentsPassed=\count88
+\TotalcodeLinesPassed=\count89
+\NumberOfFiles=\count90
+\inFile=\read1
+\inputcheck=\read2
+\off@0=\count91
+\off@1=\count92
+\off@2=\count93
+\off@3=\count94
+\off@4=\count95
+\off@5=\count96
+\off@6=\count97
+\off@7=\count98
+\off@8=\count99
+\off@9=\count100
+\off@10=\count101
+\off@11=\count102
+\off@12=\count103
+\off@13=\count104
+\off@14=\count105
+\off@15=\count106
+\@maxfiles=\count107
+\@maxoutfiles=\count108
+
+Utility: `docstrip' 2.5d <2005/07/29>
+English documentation    <1999/03/31>
+
+**********************************************************
+* This program converts documented macro-files into fast *
+* loadable files by stripping off (nearly) all comments! *
+**********************************************************
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+
+(./ams-c1.ins
+\filesmsg=\toks14
+
+
+Generating file(s) ./amsthm.sty 
+\openout0 = `./amsthm.sty'.
+
+
+Processing file amsclass.dtx (amsthm) -> amsthm.sty
+File amsclass.dtx ended by \endinput.
+Lines  processed: 5183
+Comments removed: 2887
+Comments  passed: 60
+Codelines passed: 2048
+
+
+Generating file(s) ./upref.sty 
+\openout0 = `./upref.sty'.
+
+
+Processing file upref.dtx -> upref.sty
+File upref.dtx ended by \endinput.
+Lines  processed: 146
+Comments removed: 65
+Comments  passed: 39
+Codelines passed: 40
+
+
+Generating file(s) ./amsmidx.sty 
+\openout0 = `./amsmidx.sty'.
+
+
+Processing file amsmidx.dtx -> amsmidx.sty
+File amsmidx.dtx ended by \endinput.
+Lines  processed: 236
+Comments removed: 116
+Comments  passed: 43
+Codelines passed: 75
+
+
+Generating file(s) ./amsart.cls 
+\openout0 = `./amsart.cls'.
+
+
+Processing file amsclass.dtx (amsart,classes) -> amsart.cls
+File amsclass.dtx ended by \endinput.
+Lines  processed: 5183
+Comments removed: 2887
+Comments  passed: 60
+Codelines passed: 2048
+
+
+Generating file(s) ./amsbook.cls 
+\openout0 = `./amsbook.cls'.
+
+
+Processing file amsclass.dtx (amsbook,classes) -> amsbook.cls
+File amsclass.dtx ended by \endinput.
+Lines  processed: 5183
+Comments removed: 2887
+Comments  passed: 60
+Codelines passed: 2048
+
+
+Generating file(s) ./amsproc.cls 
+\openout0 = `./amsproc.cls'.
+
+
+Processing file amsclass.dtx (amsproc,classes) -> amsproc.cls
+File amsclass.dtx ended by \endinput.
+Lines  processed: 5183
+Comments removed: 2887
+Comments  passed: 60
+Codelines passed: 2048
+
+
+Generating file(s) ./amsdtx.cls 
+\openout0 = `./amsdtx.cls'.
+
+
+Processing file amsdtx.dtx (amsdtx) -> amsdtx.cls
+File amsdtx.dtx ended by \endinput.
+Lines  processed: 1165
+Comments removed: 524
+Comments  passed: 41
+Codelines passed: 562
+
+******************************************************************
+*
+* To get documentation for the amsart, amsbook, and amsproc
+* documentclasses, run LaTeX on instr-l.tex.
+*
+* To get documentation for the amsthm package, run LaTeX on
+* amsthdoc.tex; see also thmtest.tex.
+*
+******************************************************************
+)
+Overall statistics:
+Files  processed: 7
+Lines  processed: 22279
+Comments removed: 12253
+Comments  passed: 363
+Codelines passed: 8869
+ ) ) 
+Here is how much of TeX's memory you used:
+ 381 strings out of 95776
+ 3798 string characters out of 1190455
+ 51501 words of memory out of 2000000
+ 3584 multiletter control sequences out of 15000+50000
+ 3640 words of font info for 14 fonts, out of 1000000 for 1000
+ 0 hyphenation exceptions out of 1000
+ 19i,0n,21p,190b,135s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+No pages of output.

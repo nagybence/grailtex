@@ -1,0 +1,69 @@
+install.txt for amsrefs 2.0 [2004-06-30]
+
+Preliminary note: The normal destination directory for amsrefs.sty in a
+standard TDS structure would be texmf/tex/latex/amscls (see step 3
+below). In the future, the amsrefs package will be integrated more
+thoroughly into the amscls distribution, but the current release has to
+be provided in the form of a separate distribution for those who already
+have the amscls distrib but not amsrefs.
+
+------------------------------------------------------------------------
+The first step is to identify the primary location for LaTeX input files
+on your system. Typical examples are
+
+  /usr/local/share/texmf/tex/latex...   (Unix)
+
+  C:\SWP30\TCITeX\TeX\LaTeX...          (Windows)
+
+We define "ROOT" to mean everything preceding the "/tex/latex" part. In
+the second example, this would be "C:\SWP30\TCITeX". ROOT will normally
+end in "texmf"; if it doesn't you may need to consult the documentation
+for your TeX system to find out what to use. In the following
+instructions, wherever you see ROOT substitute the actual directory or
+folder name that is used on your system.
+
+If this terminology doesn't make sense to you, seek assistance from
+a friend or colleague, or from the company that you bought your TeX
+system from, or contact us at
+
+  tech-support@ams.org
+  800-321-4AMS (321-4267) (USA/Canada)
+  401-455-4080
+
+If you have multiple texmf trees (as discussed, for example, in the
+teTeX documentation), you may want to install amsrefs using the
+TEXMFLOCAL tree as the value of ROOT. In due course when you upgrade to
+a newer TeX system, we expect that you will find amsrefs already
+incorporated into the TEXMFMAIN tree as part of the tex/latex/amscls
+area, at which point you will no longer need the copy in your TEXMFLOCAL
+tree.
+
+------------------------------------------------------------------------
+1. Download the following archive file:
+
+   ftp://ftp.ams.org/pub/tex/amsrefs.zip
+
+2. Extract files using the texmf root directory as the destination. Some
+typical examples:
+
+WinZip: Click on "Extract" and then in the "Extract to" box, enter
+        c:\sw\texmf (or whatever ROOT is on your system)
+
+unzip:  unzip amsrefs.zip -d ROOT
+
+3. Please note that although the source files for amsrefs unpack into
+the ROOT/source/latex/amsrefs area at the present time [2001-12-28], the
+other files unpack into .../latex/amscls because that is the natural
+location for them.
+
+To check the end result, you should find that you now have amsrefs.sty
+in the following location (substituting \ or : for / if appropriate):
+
+  ROOT/tex/latex/amscls/amsrefs.sty
+
+If you have a teTeX system you may need to rerun mktexlsr [known in
+earlier versions of teTeX as "texhash"].
+
+For a MikTeX system the command would be "initexmf -u", or look for
+"Refresh the Filename Database" in the MikTeX menus (this may be
+somewhat version-dependent).

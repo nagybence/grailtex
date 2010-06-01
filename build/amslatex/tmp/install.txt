@@ -1,0 +1,93 @@
+install.txt for amslatex 2.20 [2004/10/22]
+
+Update [2002-02-05]: Files added for the "amsrefs" package.
+
+If you have a relatively up-do-date TeX system that complies with the
+TeX Directory Structure (TDS) standard, installing according to the
+instructions in section I below is the easiest method.  See
+
+    http://www.tug.org/tds/tds.pdf
+
+for details on the TDS standard.  If your TeX system does not comply
+with the  TDS standard, please contact the manufactuer of your TeX
+system for details on how to install third-party TeX packages.
+
+The first step is to identify the TEXMF folder that contains files used
+by LaTeX. To do this, look for the file article.cls. If you find, e.g.,
+
+  /usr/local/share/texmf/tex/latex/base/article.cls
+
+then we will define TEXMF to mean /usr/local/share/texmf (everything
+up to the /tex/latex/base part). On a Windows system the file location
+will probably be something like
+
+  c:\sw\texmf\tex\latex\base\article.cls
+
+Then we define TEXMF to mean c:\sw\texmf. In the following instructions,
+wherever you see "TEXMF" substitute the folder name determined in this
+way.
+
+If this terminology does not make sense to you, seek assistance from
+a friend or colleague, or from the company that you bought your TeX
+system from, or contact us at
+
+  tech-support@ams.org
+  800-321-4AMS (321-4267) (USA/Canada)
+  401-455-4080
+
+========================================================================
+I. Installing the easy way.
+
+1. Download the following archive file:
+
+   ftp://ftp.ams.org/pub/tex/amslatex.zip
+
+For the amsrefs package, download also
+
+   ftp://ftp.ams.org/pub/tex/amsrefs.zip
+
+and carry out step 4 (steps 2 and 3 can be skipped).
+
+2. View the following files to assess the effects of the upgrade on
+your system:
+
+  source/latex/amsmath/diffs-m.txt
+  source/latex/amscls/diffs-c.txt
+
+3. Backup the old version of AMS-LaTeX, preferably by moving it out of
+the TEXMF tree.
+
+4. Extract files from the .zip archive using your favorite unzip tool, setting
+the extraction target directory to the texmf root directory.
+
+5. To check the end result, you should find that you now have amsmath.sty
+in the following location
+
+  TEXMF/tex/latex/amsmath/amsmath.sty
+
+Some TeX systems also use a database to keep track of TeX input files.
+If this database is not updated, your TeX system might not find the
+newly installed files.  Consult your TeX system's documentation to
+determine how to update this database.
+
+6. Some files will appear in both the source area and another area.
+This is because the source form and the in-use form are identical.
+As distributed, the files in the source/latex/ams* areas comprise a
+complete copy of the distribution from which all the other files can
+be regenerated if need be. If you need to conserve disk space, you
+could delete the files in the source area, since they are not needed
+for normal use.
+
+========================================================================
+II. Installing the not-so-easy way.
+
+Get the following zip archives:
+
+ftp://ftp.ams.org/pub/tex/amscls.zip
+ftp://ftp.ams.org/pub/tex/amsmath.zip
+ftp://ftp.ams.org/pub/tex/amsrefs.zip
+
+Unpack the zip archives and follow the instructions in their respective
+install.txt files.
+
+========================================================================

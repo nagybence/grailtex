@@ -1,0 +1,162 @@
+This is GrailTeX, Version 3.1415926-2.2-0.9994.0 (Web2C 7.5.6) (format=grailtex 2009.6.17)  20 JUN 2009 15:35
+entering extended mode
+**ams-m1.ins
+(./ams-m1.ins
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for magyar, loaded.
+(/usr/local/share/grailtex/tex/base/docstrip.tex
+\blockLevel=\count80
+\emptyLines=\count81
+\processedLines=\count82
+\commentsRemoved=\count83
+\commentsPassed=\count84
+\codeLinesPassed=\count85
+\TotalprocessedLines=\count86
+\TotalcommentsRemoved=\count87
+\TotalcommentsPassed=\count88
+\TotalcodeLinesPassed=\count89
+\NumberOfFiles=\count90
+\inFile=\read1
+\inputcheck=\read2
+\off@0=\count91
+\off@1=\count92
+\off@2=\count93
+\off@3=\count94
+\off@4=\count95
+\off@5=\count96
+\off@6=\count97
+\off@7=\count98
+\off@8=\count99
+\off@9=\count100
+\off@10=\count101
+\off@11=\count102
+\off@12=\count103
+\off@13=\count104
+\off@14=\count105
+\off@15=\count106
+\@maxfiles=\count107
+\@maxoutfiles=\count108
+
+Utility: `docstrip' 2.5d <2005/07/29>
+English documentation    <1999/03/31>
+
+**********************************************************
+* This program converts documented macro-files into fast *
+* loadable files by stripping off (nearly) all comments! *
+**********************************************************
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+
+(./ams-m1.ins
+\filesmsg=\toks14
+
+
+Generating file(s) ./amsmath.sty 
+\openout0 = `./amsmath.sty'.
+
+
+Processing file amsmath.dtx -> amsmath.sty
+File amsmath.dtx ended by \endinput.
+Lines  processed: 5795
+Comments removed: 3119
+Comments  passed: 41
+Codelines passed: 2633
+
+
+Generating file(s) ./amsgen.sty 
+\openout0 = `./amsgen.sty'.
+
+
+Processing file amsgen.dtx -> amsgen.sty
+File amsgen.dtx ended by \endinput.
+Lines  processed: 391
+Comments removed: 233
+Comments  passed: 40
+Codelines passed: 116
+
+
+Generating file(s) ./amstext.sty 
+\openout0 = `./amstext.sty'.
+
+
+Processing file amstext.dtx -> amstext.sty
+File amstext.dtx ended by \endinput.
+Lines  processed: 309
+Comments removed: 209
+Comments  passed: 40
+Codelines passed: 58
+
+
+Generating file(s) ./amsopn.sty 
+\openout0 = `./amsopn.sty'.
+
+
+Processing file amsopn.dtx -> amsopn.sty
+File amsopn.dtx ended by \endinput.
+Lines  processed: 247
+Comments removed: 117
+Comments  passed: 38
+Codelines passed: 90
+
+
+Generating file(s) ./amsbsy.sty 
+\openout0 = `./amsbsy.sty'.
+
+
+Processing file amsbsy.dtx -> amsbsy.sty
+File amsbsy.dtx ended by \endinput.
+Lines  processed: 246
+Comments removed: 149
+Comments  passed: 41
+Codelines passed: 54
+
+
+Generating file(s) ./amscd.sty 
+\openout0 = `./amscd.sty'.
+
+
+Processing file amscd.dtx -> amscd.sty
+File amscd.dtx ended by \endinput.
+Lines  processed: 328
+Comments removed: 157
+Comments  passed: 39
+Codelines passed: 130
+
+
+Generating file(s) ./amsxtra.sty 
+\openout0 = `./amsxtra.sty'.
+
+
+Processing file amsxtra.dtx -> amsxtra.sty
+File amsxtra.dtx ended by \endinput.
+Lines  processed: 131
+Comments removed: 53
+Comments  passed: 38
+Codelines passed: 38
+
+******************************************************************
+*
+* To produce the User's Guide for amsmath, run amsldoc.tex through
+* LaTeX.
+*
+******************************************************************
+)
+Overall statistics:
+Files  processed: 7
+Lines  processed: 7447
+Comments removed: 4037
+Comments  passed: 277
+Codelines passed: 3119
+ ) ) 
+Here is how much of TeX's memory you used:
+ 369 strings out of 95776
+ 3786 string characters out of 1190455
+ 50972 words of memory out of 2000000
+ 3574 multiletter control sequences out of 15000+50000
+ 3640 words of font info for 14 fonts, out of 1000000 for 1000
+ 0 hyphenation exceptions out of 1000
+ 17i,0n,21p,171b,118s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+No pages of output.

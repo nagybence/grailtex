@@ -1,0 +1,20 @@
+pkgname=amslatex
+sourcefile=macros/latex/required/amslatex.zip
+
+build() {
+	cd classes
+	rm manifest.txt
+	makealltex ams-c1.ins
+	installalltex
+	installalldoc
+	cd ../math
+	rm manifest.txt
+	makealltex ams-m1.ins
+	installalltex
+	installalldoc
+	cd ../other
+	installalltex
+	installalldoc
+	cd ..
+	installalldoc
+}

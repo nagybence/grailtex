@@ -1,0 +1,7 @@
+pkgname=footmisc
+
+build() {
+	makealltex
+	installalltex
+	installalldoc
+}

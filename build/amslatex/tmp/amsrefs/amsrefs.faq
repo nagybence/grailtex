@@ -1,0 +1,15 @@
+amsrefs.faq  [2004/06/30] American Mathematical Society
+
+Frequently asked questions about the amsrefs package and its companion
+packages.
+
+Suggestions? Please send mail to tech-support@ams.org.
+
+------------------------------------------------------------------------
+(1) Question: Where should I look for documentation?
+
+Answer: User documentation is found in the file amsrdoc.pdf (or
+amsrdoc.dvi).
+
+Some example files (cite-xa.tex cite-xb.tex cite-xh.tex cite-xs.tex
+gktest.ltb) are also provided.

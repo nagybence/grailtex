@@ -1,0 +1,69 @@
+%%% ====================================================================
+%%% @LaTeX-file{
+%%%   filename  = "ams-m1.ins",
+%%%   version   = "1.05",
+%%%   date      = "2000/05/25",
+%%%   time      = "16:28:35 EDT",
+%%%   checksum  = "13352 69 258 2600",
+%%%   author    = "American Mathematical Society",
+%%%   address   = "American Mathematical Society,
+%%%                Technical Support,
+%%%                Electronic Products and Services,
+%%%                P. O. Box 6248,
+%%%                Providence, RI 02940,
+%%%                USA",
+%%%   telephone = "401-455-4080 or (in the USA and Canada)
+%%%                800-321-4AMS (321-4267)",
+%%%   FAX       = "401-331-3842",
+%%%   email     = "tech-support@math.ams.org (Internet)",
+%%%   supported = "yes",
+%%%   copyright = "Copyright 1999 American Mathematical Society,
+%%%                all rights reserved.  Copying of this file is
+%%%                authorized only if either:
+%%%                (1) you make absolutely no changes to your copy,
+%%%                including name; OR
+%%%                (2) if you do make changes, you first rename it
+%%%                to some other name.",
+%%%   keywords  = "latex, amsmath, ams-latex, installation",
+%%%   abstract  = "This is an installation file that will generate
+%%%                loadable package and class files when run
+%%%                through \LaTeX{}.",
+%%%   docstring = "The checksum field above contains a CRC-16
+%%%                checksum as the first value, followed by the
+%%%                equivalent of the standard UNIX wc (word
+%%%                count) utility output of lines, words, and
+%%%                characters.  This is produced by Robert
+%%%                Solovay's checksum utility.",
+%%% }
+%%% ====================================================================
+\def\batchfile{ams-m1.ins}
+\input docstrip.tex
+\preamble
+\endpreamble
+
+\keepsilent
+
+\csname newtoks\endcsname\filesmsg
+\def\dofile#1#2#3{\generateFile{#1}{f}{\from{#2}{#3}}%
+  \filesmsg\expandafter{\the\filesmsg
+    \Msg{* \space\space#1}}}
+
+%    Math packages
+\dofile{amsmath.sty}{amsmath.dtx}{}
+\dofile{amsgen.sty}{amsgen.dtx}{}
+\dofile{amstext.sty}{amstext.dtx}{}
+\dofile{amsopn.sty}{amsopn.dtx}{}
+\dofile{amsbsy.sty}{amsbsy.dtx}{}
+\dofile{amscd.sty}{amscd.dtx}{}
+\dofile{amsxtra.sty}{amsxtra.dtx}{}
+
+\ifToplevel{
+\Msg{******************************************************************}
+\Msg{*}
+\Msg{* To produce the User's Guide for amsmath, run amsldoc.tex through}
+\Msg{* LaTeX.}
+\Msg{*}
+\Msg{******************************************************************}
+}
+
+\endinput

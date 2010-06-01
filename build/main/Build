@@ -1,5 +1,5 @@
 pkgname=main
-depends=(babel base geometry graphics hyperref libertine memoir ms oberdiek tools textcase textpos)
+depends=(amslatex babel base footmisc geometry graphics hyperref libertine memoir ms oberdiek setspace tools textcase textpos)
 
 download() {
 	true

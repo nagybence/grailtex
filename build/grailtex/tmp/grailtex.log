@@ -1,0 +1,171 @@
+This is GrailTeX, Version 3.1415926-2.2-0.9994.0 (Web2C 7.5.6) (INITEX)  3 NOV 2009 16:27
+entering extended mode
+**grailtex.ini
+(./grailtex.ini
+(/usr/local/share/grailtex/tex/xetex/generic/xetex/unicode-letters.tex
+loading Unicode properties and character classes)
+(/usr/local/share/grailtex/tex/base/latex.ltx
+\openout15 = `texsys.aux'.
+
+
+./texsys.aux found
+
+
+\@currdir set to: ./.
+
+
+Assuming \openin and \input 
+have the same search path.
+
+
+Defining UNIX/DOS style filename parser.
+
+catcodes, registers,
+\maxdimen=\dimen10
+\hideskip=\skip10
+\p@=\dimen11
+\z@=\dimen12
+\z@skip=\skip11
+\voidb@x=\box10
+ compatibility for TeX 2,  parameters,
+\normalbaselineskip=\skip12
+\normallineskip=\skip13
+\normallineskiplimit=\dimen13
+\interfootnotelinepenalty=\count23
+\strutbox=\box11
+
+LaTeX2e <2005/12/01>
+hacks,
+\@tempcnta=\count24
+\@tempcntb=\count25
+\@tempdima=\dimen14
+\@tempdimb=\dimen15
+\@tempdimc=\dimen16
+\@tempboxa=\box12
+\@tempskipa=\skip14
+\@tempskipb=\skip15
+\@temptokena=\toks10
+\@flushglue=\skip16
+ control, par, spacing,
+\@savsk=\dimen17
+\@savsf=\count26
+\smallskipamount=\skip17
+\medskipamount=\skip18
+\bigskipamount=\skip19
+\fill=\skip20
+ files,
+\@inputcheck=\read0
+\@unused=\write0
+\@mainaux=\write1
+\@partaux=\write2
+\@clubpenalty=\count27
+ font encodings, lengths,
+\everymath=\toks11
+\everydisplay=\toks12
+\every@math@size=\toks13
+\lower@bound=\dimen18
+\upper@bound=\dimen19
+\c@mv@normal=\count28
+\c@mv@bold=\count29
+
+====================================
+
+Local config file fonttext.cfg used
+
+====================================
+(/usr/local/share/grailtex/tex/base/fonttext.cfg
+File: fonttext.cfg 2004/02/04 v2.3a LaTeX Kernel (Uncustomised text font setup)
+
+
+(/usr/local/share/grailtex/tex/base/fonttext.ltx
+File: fonttext.ltx 2004/02/04 v2.3a LaTeX Kernel (Text font setup)
+
+=== Don't modify this file, use a .cfg file instead ===
+
+(/usr/local/share/grailtex/tex/base/omlenc.def
+File: omlenc.def 2005/09/27 v1.99g Standard LaTeX file
+)
+(/usr/local/share/grailtex/tex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+)
+(/usr/local/share/grailtex/tex/base/ot1enc.def
+File: ot1enc.def 2005/09/27 v1.99g Standard LaTeX file
+)
+(/usr/local/share/grailtex/tex/base/omsenc.def
+File: omsenc.def 2005/09/27 v1.99g Standard LaTeX file
+)
+(/usr/local/share/grailtex/tex/base/t1cmr.fd
+File: t1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(/usr/local/share/grailtex/tex/base/ot1cmr.fd
+File: ot1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(/usr/local/share/grailtex/tex/base/ot1cmss.fd
+File: ot1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(/usr/local/share/grailtex/tex/base/ot1cmtt.fd
+File: ot1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)))
+====================================
+
+Local config file fontmath.cfg used
+
+====================================
+(/usr/local/share/grailtex/tex/base/fontmath.cfg
+File: fontmath.cfg 2004/02/04 v2.3a LaTeX Kernel (Uncustomised math font setup)
+
+
+(/usr/local/share/grailtex/tex/base/fontmath.ltx
+File: fontmath.ltx 2004/02/04 v2.3a LaTeX Kernel (Math font setup)
+
+=== Don't modify this file, use a .cfg file instead ===
+
+LaTeX Font Info:    Redeclaring font encoding OML on input line 59.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 60.
+(/usr/local/share/grailtex/tex/base/omlcmm.fd
+File: omlcmm.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(/usr/local/share/grailtex/tex/base/omscmsy.fd
+File: omscmsy.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(/usr/local/share/grailtex/tex/base/omxcmex.fd
+File: omxcmex.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+(/usr/local/share/grailtex/tex/base/ucmr.fd
+File: ucmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+\symoperators=\mathgroup0
+\symletters=\mathgroup1
+\symsymbols=\mathgroup2
+\symlargesymbols=\mathgroup3
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 78.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/m/it --> OML/cmm/b/it on input line 79.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/m/n --> OMS/cmsy/b/n on input line 80.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 88.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/m/it --> OT1/cmr/bx/it on input line 89.
+))
+====================================
+
+Local config file preload.cfg used
+
+=====================================
+(/usr/local/share/grailtex/tex/base/preload.cfg
+File: preload.cfg 2004/02/04 v2.3a LaTeX Kernel (Uncustomised preload font setu
+p)
+
+(/usr/local/share/grailtex/tex/base/preload.ltx
+File: preload.ltx 1998/08/17 v2.1g LaTeX Kernel (Font Preloading)
+
+! Font \tenln=line10 not loadable: Metric (TFM) file or installed font not foun
+d.
+<to be read again> 
+                   \font 
+l.57 \font\tenln  =line10   \font
+                                 \tenlnw  =linew10\relax
+? x
+No pages of output.

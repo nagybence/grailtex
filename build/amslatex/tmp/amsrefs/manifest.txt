@@ -1,0 +1,56 @@
+
+texmf/bibtex/bst/ams/
+  amsra.bst
+  amsrn.bst
+  amsrs.bst
+  amsru.bst
+  amsry.bst
+
+texmf/doc/latex/amscls/
+  amsrdoc.pdf
+  amsrefs.faq
+  amsrefs.pdf
+  changes.pdf
+  cite-xa.tex
+  cite-xb.tex
+  cite-xh.tex
+  cite-xs.tex
+  gktest.ltb
+  jr.bib
+  mathscinet.pdf
+  textcmds.pdf
+
+texmf/source/latex/amsrefs/
+  00readme.txt
+  ams-r1.ins
+  amsrdoc.pdf
+  amsrefs.dtx
+  amsrefs.faq
+  amsrefs.pdf
+  amsxport.dtx
+  changes.pdf
+  cite-xa.tex
+  cite-xb.tex
+  cite-xh.tex
+  cite-xs.tex
+  gktest.ltb
+  ifoption.dtx
+  install.txt
+  jr.bib
+  manifest.txt
+  mathscinet.dtx
+  mathscinet.pdf
+  pcatcode.dtx
+  rkeyval.dtx
+  textcmds.dtx
+  textcmds.pdf
+
+texmf/tex/latex/amscls/
+  amsrbeta.sty
+  amsrefs.sty
+  ifoption.sty
+  mathscinet.sty
+  pcatcode.sty
+  rkeyval.sty
+  rkvbeta.sty
+  textcmds.sty

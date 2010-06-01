@@ -1,5 +1,5 @@
 pkgname=grailtex
-depends=(xetex base)
+depends=(xetex)
 
 download() {
 	cp -Lf ../grailtex.ini ../language.dat ../texmf.cnf .

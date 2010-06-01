@@ -1,0 +1,154 @@
+%&pdfelatex
+%% This is intended to be a working example of using the amsrefs
+%% backrefs option in conjunction with hyperref. It works for me using
+%% pdflatex [mjd,2002-01-03]. Cf testbib.tex in the hyperref distrib.
+%%
+%% This is pdfTeX, Version 3.14159-14h-released-20010417 (Web2C 7.3.3.1)
+%% (format=pdflatex 2001.12.21)
+%% Package: hyperref 2000/01/22 v6.69c Hypertext links for LaTeX
+
+\documentclass{article}
+\usepackage{times}
+\usepackage[colorlinks,citecolor=red,pagebackref,hypertexnames=false]{hyperref}
+\usepackage[backrefs]{amsrefs}
+
+\newenvironment{dual}{%
+  \par\medskip
+  \trivlist\item[]%
+}{%
+  \endtrivlist
+}
+
+\newcommand{\backup}{%
+  \vspace*{-\baselineskip}\vspace*{-\medskipamount}\nopagebreak
+}
+
+\newtheorem{thm}{Theorem}[section]
+
+\providecommand{\MR}{}
+
+\begin{document}
+\title{Testing amsrefs with the hyperref package}
+\author{MJD}
+\maketitle
+
+   The following examples are derived from
+   \emph{Homology manifold bordism} by Heather Johnston and Andrew
+   Ranicki (Trans.\ Amer.\ Math.\ Soc.\ \textbf{352} no 11 (2000), PII: S
+   0002-9947(00)02630-1).
+
+\setcounter{section}{3}
+\section{Homology manifold bordism}
+
+\begin{dual}
+The results of Johnston \cite{Jo} on homology
+manifolds are extended here. It is not
+possible to investigate transversality by
+geometric methods---as in \cite{Jo} we employ
+bordism and surgery instead.
+\end{dual}
+
+%Kirby and Siebenmann \cite{KS} (III,\S 1),
+\begin{dual}
+The proof of transversality is indirect,
+relying heavily on surgery theory\mdash see
+Kirby and Siebenmann \cite{KS}*{III, \S 1},
+Marin \cite{M} and Quinn \cite{Q3}. We shall
+use the formulation in terms of topological
+block bundles of Rourke and Sanderson
+\cite{RS}.
+\end{dual}
+
+\begin{dual}
+$Q$ is a codimension $q$ subspace by Theorem
+4.9 of Rourke and Sanderson \cite{RS}.
+(Hughes, Taylor and Williams \cite{HTW}
+obtained a topological regular neighborhood
+theorem for arbitrary submanifolds \dots.)
+\end{dual}
+
+%Wall \cite{Wa} (Chapter 11) obtained a
+\begin{dual}
+Wall \cite{Wa}*{Chapter 11} obtained a
+codimension $q$ splitting obstruction \dots.
+\end{dual}
+
+\begin{dual}
+\dots\ following the work of Cohen \cite{Co}
+on $PL$ manifold transversality.
+\end{dual}
+
+\begin{dual}
+In this case each inverse image is
+automatically a $PL$ submanifold of
+codimension $\sigma$ (Cohen \cite{Co}), so
+there is no need to use $s$-cobordisms.
+\end{dual}
+
+%Quinn (\cite{Q2}, 1.1) proved that \dots
+\begin{dual}
+Quinn \cite{Q2}*{1.1} proved that \dots
+\end{dual}
+
+\begin{dual}\backup
+\begin{thm}[The additive structure of
+  homology manifold bordism, Johnston
+  \cite{Jo}]
+\dots
+\end{thm}
+\end{dual}
+
+\begin{dual}
+For $m\geq 5$ the Novikov-Wall surgery theory
+for topological manifolds gives an exact
+sequence (Wall \cite{Wa}*{Chapter 10}.
+\end{dual}
+
+\begin{dual}
+The surgery theory of topological manifolds
+was extended to homology manifolds in Quinn
+\cites{Q1,Q2} and Bryant, Ferry, Mio
+and Weinberger \cite{BFMW}.
+\end{dual}
+
+\begin{dual}
+The 4-periodic obstruction is equivalent to
+an $m$-dimensional homology manifold, by
+\cite{BFMW}.
+\end{dual}
+
+\begin{dual}
+Thus, the surgery exact sequence of
+\cite{BFMW} does not follow Wall \cite{Wa} in
+relating homology manifold structures and
+normal invariants.
+\end{dual}
+
+\begin{dual}
+\dots\ the canonical $TOP$ reduction
+(\cite{FP}) of the Spivak normal fibration of
+$M$ \dots
+\end{dual}
+
+\begin{dual}\backup
+\begin{thm}[Johnston \cite{Jo}]
+\dots
+\end{thm}
+\end{dual}
+
+\begin{dual}
+Actually \cite{Jo}*{(5.2)} is for $m\geq 7$,
+but we can improve to $m\geq 6$ by a slight
+variation of the proof as described below.
+\end{dual}
+
+\begin{dual}
+(This type of surgery on a Poincar\'e space
+is in the tradition of Lowell Jones
+\cite{Jn}.)
+\end{dual}
+
+\bibliographystyle{amsxport}
+\bibliography{jr}
+
+\end{document}

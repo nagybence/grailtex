@@ -1,0 +1,43 @@
+%%% ====================================================================
+%%% @LaTeX-file{
+%%%   filename  = "ams-r1.ins",
+%%%   version   = "1.04",
+%%%   date      = "2001/12/24",
+%%%   time      = "12:50:14 EST",
+%%%   author    = "Michael J Downes",
+%%%   address   = "American Mathematical Society,
+%%%                Publications Technical Group,
+%%%                PO Box 6248,
+%%%                Providence, RI 02940,
+%%%                USA",
+%%%   email     = "tech-support@ams.org",
+%%%   URL       = "http://www.ams.org/",
+%%%   abstract  = "A docstrip batch file for the amsrefs package",
+%%%   checksum  = "21160 39 121 1555",
+%%%   docstring = "The checksum field, produced by Robert Solovay's
+%%%                checksum utility, gives CRC-16 checksum, lines,
+%%%                words, and characters.",
+%%%  }
+%%% ====================================================================
+\def\batchfile{ams-r1.ins}
+\input docstrip.tex
+\preamble
+\endpreamble
+\keepsilent
+\generateFile{pcatcode.sty}{f}{\from{pcatcode.dtx}{}}
+\generateFile{ifoption.sty}{f}{\from{ifoption.dtx}{}}
+\generateFile{rkeyval.sty}{f}{\from{rkeyval.dtx}{}}
+\generateFile{amsrefs.sty}{f}{\from{amsrefs.dtx}{pkg}}
+\generateFile{textcmds.sty}{f}{\from{textcmds.dtx}{pkg}}
+\generateFile{mathscinet.sty}{f}{\from{mathscinet.dtx}{}}
+%\generateFile{amsjpa.sty}{f}{\from{amsjpa.dtx}{}}
+% Remove \endinput from postamble
+\postamble
+\endpostamble
+\generateFile{amsrn.bst}{f}{\from{amsxport.dtx}{bst,sort,plain}}
+\generateFile{amsru.bst}{f}{\from{amsxport.dtx}{bst,plain}}
+\generateFile{amsra.bst}{f}{\from{amsxport.dtx}{bst,sort,alpha}}
+\generateFile{amsry.bst}{f}{\from{amsxport.dtx}{bst,sort,alpha,y2k}}
+\generateFile{amsrs.bst}{f}{\from{amsxport.dtx}{bst,sort,short}}
+%\generateFile{amsj.bib}{f}{\from{amsxport.dtx}{abbrevs}}
+\endinput
